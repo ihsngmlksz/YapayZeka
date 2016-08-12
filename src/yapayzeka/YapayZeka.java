@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -141,29 +142,13 @@ public class YapayZeka extends javax.swing.JFrame {
 
         NumberToWord numberToWord = new NumberToWord();
         numberToWord.sifre(jTextField3.getText());
-        numberToWord.kelimeler();
-
-//        BufferedReader br = null;
-//
-//		try {
-//
-//			String sCurrentLine;
-//
-//			br = new BufferedReader(new FileReader("C:src/yapayzeka/kelime-listesi.txt"));
-//
-//			while ((sCurrentLine = br.readLine()) != null) {
-//				System.out.println(sCurrentLine);
-//			}
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				if (br != null)br.close();
-//			} catch (IOException ex) {
-//				ex.printStackTrace();
-//			}
-//		}
+        
+        DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel(); 
+        tableModel.setRowCount(0);
+        for (String string : numberToWord.kelimeler()) {
+            tableModel.addRow(new Object[]{string});            
+        }        
+        jTable1.setModel(tableModel);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

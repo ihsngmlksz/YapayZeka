@@ -6,15 +6,14 @@
 package yapayzeka;
 
 import java.util.List;
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -90,9 +89,7 @@ public class NumberToWord {
         return wordList;
     }
 
-    public void kelimeler() {
-        lines = new ArrayList<>();
-
+    public void firsWord() {
         for (String string : numberToCharList(key.charAt(0))) {
             try {
                 Files.lines(Paths.get("c:src/yapayzeka", "kelime-listesi.txt")).filter(line -> line.startsWith(string, 0)).forEach(lines::add);
@@ -100,24 +97,25 @@ public class NumberToWord {
                 System.out.println(ex);
             }
         }
+    }
 
+    public List<String> kelimeler() {
+        lines = new ArrayList<>();
+        firsWord();
         for (int i = 1; i < key.length(); i++) {
+            deneme = new ArrayList<>();
+            deneme.addAll(lines);
+            lines.clear();
             for (String s : numberToCharList(key.charAt(i))) {
-                deneme = new ArrayList<>();
-                for (String string : lines) {
-                    if (string.startsWith(s, i)) {
-                        deneme.add(string);
+                for (String string : deneme) {
+                    if (string.startsWith(s, i) && string.length() == key.length()) {
+                        lines.add(string);
                     }
-                }
-                for(String string : deneme)
-                {
-                    if (string.startsWith(s, i)) {
-                        System.out.println(string);
-                        deneme.add(string);
-                    }                
                 }
             }
         }
+
+        return lines;
     }
 
 }

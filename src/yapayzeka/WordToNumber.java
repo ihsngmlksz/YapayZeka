@@ -47,8 +47,9 @@ public class WordToNumber {
                 case 'T':keyList.add(8);break;
                 case 'U':keyList.add(8);break;
                 case 'Ü':keyList.add(8);break;
-                case 'W':keyList.add(9);break;                
-                case 'V':keyList.add(9);break;
+                case 'V':keyList.add(8);break;
+                case 'W':keyList.add(9);break;  
+                case 'X':keyList.add(9);break;  
                 case 'Y':keyList.add(9);break;
                 case 'Z':keyList.add(9);break;
                 case ' ':keyList.add(0);break;                

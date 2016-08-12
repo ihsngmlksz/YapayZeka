@@ -139,28 +139,31 @@ public class YapayZeka extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
+        NumberToWord numberToWord = new NumberToWord();
+        numberToWord.sifre(jTextField3.getText());
+        numberToWord.kelimeler();
 
-        BufferedReader br = null;
-
-		try {
-
-			String sCurrentLine;
-
-			br = new BufferedReader(new FileReader("C:src/yapayzeka/kelime-listesi.txt"));
-
-			while ((sCurrentLine = br.readLine()) != null) {
-				System.out.println(sCurrentLine);
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (br != null)br.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
+//        BufferedReader br = null;
+//
+//		try {
+//
+//			String sCurrentLine;
+//
+//			br = new BufferedReader(new FileReader("C:src/yapayzeka/kelime-listesi.txt"));
+//
+//			while ((sCurrentLine = br.readLine()) != null) {
+//				System.out.println(sCurrentLine);
+//			}
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				if (br != null)br.close();
+//			} catch (IOException ex) {
+//				ex.printStackTrace();
+//			}
+//		}
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
